@@ -3,54 +3,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Zone Gaming | Actualités, Guides & Objectifs</title>
-    
-    <!-- Lien CSS direct (sans / au début pour GitHub Pages) -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Polices Gaming Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Actus & Esport Gaming</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-fortnite: #9333ea;
+            --accent-valorant: #ff4655;
+            --accent-dbz: #f59e0b;
+            --accent-rl: #0284c7;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e1b4b, #0f172a);
+            border-radius: 12px;
+            border: 1px solid #312e81;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #334155;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .card.fortnite { border-top: 4px solid var(--accent-fortnite); }
+        .card.valorant { border-top: 4px solid var(--accent-valorant); }
+        .card.dbz { border-top: 4px solid var(--accent-dbz); }
+        .card.rl { border-top: 4px solid var(--accent-rl); }
+
+        .card-img-container {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            background-color: #0f172a;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card-img-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .fortnite .badge { background-color: var(--accent-fortnite); color: #fff; }
+        .valorant .badge { background-color: var(--accent-valorant); color: #fff; }
+        .dbz .badge { background-color: var(--accent-dbz); color: #000; }
+        .rl .badge { background-color: var(--accent-rl); color: #fff; }
+
+        .links-section {
+            margin-bottom: 20px;
+        }
+
+        .links-section h4 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .link-list {
+            list-style: none;
+        }
+
+        .link-list li {
+            margin-bottom: 8px;
+        }
+
+        .link-list a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-block;
+            transition: color 0.2s;
+        }
+
+        .link-list a:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+
+        .news-feed {
+            margin-top: auto;
+            border-top: 1px solid #334155;
+            padding-top: 15px;
+        }
+
+        .news-feed h4 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .feed-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 250px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .feed-item {
+            background-color: #0f172a;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border-left: 3px solid #38bdf8;
+        }
+
+        .feed-item a {
+            color: #f1f5f9;
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .feed-item a:hover {
+            color: #38bdf8;
+        }
+
+        .feed-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .loader {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #334155;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- BARRE DE NAVIGATION PRINCIPALE -->
-    <header class="main-header">
-        <div class="header-container">
-            <a href="#" class="logo" onclick="navigateTo('home'); return false;">
-                LA ZONE <span>GAMING</span>
-            </a>
-            
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#" onclick="navigateTo('home'); return false;">Accueil</a></li>
-                    <li><a href="#" onclick="navigateTo('home'); setTimeout(() => document.getElementById('games-section')?.scrollIntoView({behavior: 'smooth'}), 100); return false;">Jeux</a></li>
-                    <li><a href="#" onclick="navigateTo('objectives'); return false;">Objectifs</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header>
+        <h1>Hub Actus & Esport Gaming</h1>
+        <p>Flux en direct et liens officiels pour Fortnite, Valorant, Sparking! ZERO & Rocket League</p>
     </header>
 
-    <!-- ZONE DE CONTENU DYNAMIQUE (Tout est généré par script.js) -->
-    <main id="app-root">
-        <!-- Le contenu (Accueil, Fortnite, Rocket League, Valorant, DB Sparking Zero, News Live) s'affiche ici -->
-    </main>
+    <div class="container">
 
-    <!-- PIED DE PAGE -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>LA ZONE <span>GAMING</span></h3>
-                <p>La référence pour suivre l'actualité en direct de Fortnite, Rocket League, Valorant et Dragon Ball Sparking Zero.</p>
+        <!-- FORTNITE -->
+        <div class="card fortnite">
+            <div class="card-img-container">
+                <a href="https://www.fortnite.com/download?lang=fr" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR08zS7KzGz7F5S5S5S5S5S5S5S5S5S5S5S5S&s" alt="Fortnite" onerror="this.src='https://via.placeholder.com/400x200/9333ea/ffffff?text=Fortnite'">
+                </a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 La Zone Gaming. Tous droits réservés.</p>
+            <div class="card-body">
+                <div class="card-title">
+                    <span>Fortnite</span>
+                    <span class="badge">BR & Esport</span>
+                </div>
+                <div class="links-section">
+                    <h4>Sites & Sources</h4>
+                    <ul class="link-list">
+                        <li>📌 <a href="https://www.fortnite.com/download?lang=fr" target="_blank">Fortnite Download / Officiel</a></li>
+                        <li>📰 <a href="https://www.fortnite.com/news?lang=fr" target="_blank">Notes de Patch & Actus</a></li>
+                        <li>🔥 <a href="https://www.breakflip.com/fr/fortnite" target="_blank">Breakflip (Guides & Leaks)</a></li>
+                        <li>⚡ <a href="https://www.dexerto.fr/fortnite/" target="_blank">Dexerto FR</a></li>
+                    </ul>
+                </div>
+                <div class="news-feed">
+                    <h4>🔄 Actus Automatiques</h4>
+                    <div class="feed-items" id="feed-fortnite">
+                        <span class="loader">Chargement des actualités...</span>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- VALORANT -->
+        <div class="card valorant">
+            <div class="card-img-container">
+                <a href="https://www.riotgames.com/fr/actus/valorant-console-collaboration-mondiale" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR08zS7KzGz7F5S5S5S5S5S5S5S5S5S5S5S5S&s" alt="Valorant" onerror="this.src='https://via.placeholder.com/400x200/ff4655/ffffff?text=Valorant'">
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="card-title">
+                    <span>Valorant</span>
+                    <span class="badge">FPS Esport</span>
+                </div>
+                <div class="links-section">
+                    <h4>Sites & Sources</h4>
+                    <ul class="link-list">
+                        <li>📌 <a href="https://www.riotgames.com/fr/actus/valorant-console-collaboration-mondiale" target="_blank">Riot Games Actu Valorant</a></li>
+                        <li>📰 <a href="https://playvalorant.com/fr-fr/news/" target="_blank">PlayValorant Officiel</a></li>
+                        <li>🏆 <a href="https://www.mandatory.gg/valorant/" target="_blank">Mandatory.gg (Esport FR)</a></li>
+                        <li>📊 <a href="https://www.vlr.gg/" target="_blank">VLR.gg (Matchs Pro)</a></li>
+                    </ul>
+                </div>
+                <div class="news-feed">
+                    <h4>🔄 Actus Automatiques</h4>
+                    <div class="feed-items" id="feed-valorant">
+                        <span class="loader">Chargement des actualités...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DRAGON BALL SPARKING ZERO -->
+        <div class="card dbz">
+            <div class="card-img-container">
+                <a href="https://www.instant-gaming.com/fr/17748-acheter-dragon-ball-sparking-zero-pc-jeu-steam-us-ca/?srsltid=AfmBOorDDbE6a6xVg_-UY-3fP1ePbJpUKbSCoCwXBmkF1xicItsnF1I2" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR08zS7KzGz7F5S5S5S5S5S5S5S5S5S5S5S5S&s" alt="Dragon Ball Sparking Zero" onerror="this.src='https://via.placeholder.com/400x200/f59e0b/000000?text=Sparking!+ZERO'">
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="card-title">
+                    <span>DB: Sparking! ZERO</span>
+                    <span class="badge">Versus Fighting</span>
+                </div>
+                <div class="links-section">
+                    <h4>Sites & Sources</h4>
+                    <ul class="link-list">
+                        <li>🛒 <a href="https://www.instant-gaming.com/fr/17748-acheter-dragon-ball-sparking-zero-pc-jeu-steam-us-ca/?srsltid=AfmBOorDDbE6a6xVg_-UY-3fP1ePbJpUKbSCoCwXBmkF1xicItsnF1I2" target="_blank">Instant Gaming (Jeu)</a></li>
+                        <li>📌 <a href="https://fr.bandainamcoent.eu/dragon-ball/dragon-ball-sparking-zero/news" target="_blank">Bandai Namco Officiel</a></li>
+                        <li>🐲 <a href="https://db-z.com/" target="_blank">DB-Z.com (Média spécialisé)</a></li>
+                        <li>🎮 <a href="https://www.actugaming.net/" target="_blank">ActuGaming</a></li>
+                    </ul>
+                </div>
+                <div class="news-feed">
+                    <h4>🔄 Actus Automatiques</h4>
+                    <div class="feed-items" id="feed-dbz">
+                        <span class="loader">Chargement des actualités...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROCKET LEAGUE -->
+        <div class="card rl">
+            <div class="card-img-container">
+                <a href="https://www.rocketleague.com/fr/news" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjg21uxXs-h51w3Q-pCiYw1A690VMohx8zPYtS8K6Cam7p8gi0hTFJZpY8&s=10" alt="Rocket League">
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="card-title">
+                    <span>Rocket League</span>
+                    <span class="badge">RLCS & Arcade</span>
+                </div>
+                <div class="links-section">
+                    <h4>Sites & Sources</h4>
+                    <ul class="link-list">
+                        <li>🖼️ <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjg21uxXs-h51w3Q-pCiYw1A690VMohx8zPYtS8K6Cam7p8gi0hTFJZpY8&s=10" target="_blank">Image Rocket League</a></li>
+                        <li>📰 <a href="https://www.rocketleague.com/fr/news" target="_blank">Rocket League Officiel</a></li>
+                        <li>🚗 <a href="https://www.team-aaa.com/fr/portal/rocket-league" target="_blank">Team-aAa (Suivi RLCS)</a></li>
+                        <li>💬 <a href="https://www.reddit.com/r/RocketLeagueEsports/" target="_blank">Reddit RL Esports</a></li>
+                    </ul>
+                </div>
+                <div class="news-feed">
+                    <h4>🔄 Actus Automatiques</h4>
+                    <div class="feed-items" id="feed-rl">
+                        <span class="loader">Chargement des actualités...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Projet GitHub Pages - Mis à jour automatiquement via des API RSS publiques</p>
     </footer>
 
-    <!-- Script JS direct (sans / au début pour GitHub Pages) -->
-    <script src="script.js"></script>
+    <script>
+        // Fonction JavaScript pour récupérer les actus en direct via Google News RSS + rss2json
+        async function fetchAutoNews(searchQuery, containerId) {
+            const container = document.getElementById(containerId);
+            const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(searchQuery)}&hl=fr&gl=FR&ceid=FR:fr`;
+            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.status === 'ok' && data.items.length > 0) {
+                    container.innerHTML = '';
+                    data.items.slice(0, 4).forEach(item => {
+                        const date = new Date(item.pubDate).toLocaleDateString('fr-FR', {
+                            day: 'numeric',
+                            month: 'short'
+                        });
+
+                        const itemElement = document.createElement('div');
+                        itemElement.className = 'feed-item';
+                        itemElement.innerHTML = `
+                            <a href="${item.link}" target="_blank">${item.title}</a>
+                            <div class="feed-date">📅 ${date}</div>
+                        `;
+                        container.appendChild(itemElement);
+                    });
+                } else {
+                    container.innerHTML = '<span class="loader">Aucune actualité disponible.</span>';
+                }
+            } catch (error) {
+                console.error("Erreur de chargement", error);
+                container.innerHTML = '<span class="loader">Erreur de chargement.</span>';
+            }
+        }
+
+        // Exécution automatique à l'ouverture de la page
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchAutoNews("Fortnite esport actu", "feed-fortnite");
+            fetchAutoNews("Valorant esport actu", "feed-valorant");
+            fetchAutoNews("Dragon Ball Sparking Zero actu", "feed-dbz");
+            fetchAutoNews("Rocket League esport actu", "feed-rl");
+        });
+    </script>
 </body>
 </html>
