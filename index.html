@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Zone Gaming | La plateforme E-sport & Gaming FR</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Polices gaming et lisibles -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- BARRE DE NAVIGATION -->
+    <header class="navbar">
+        <div class="logo" onclick="navigateTo('home')">
+            LA ZONE <span>GAMING</span>
+        </div>
+        
+        <nav id="nav-menu">
+            <ul class="nav-links">
+                <li><a href="#" onclick="navigateTo('home')">Accueil</a></li>
+                <li><a href="#" onclick="navigateTo('home', '#games-section')">Jeux</a></li>
+                <li><a href="#" onclick="navigateTo('objectives')">Objectifs</a></li>
+                <li><a href="#" onclick="navigateTo('news')">Actualités</a></li>
+                <li><a href="#" onclick="navigateTo('about')">À propos</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="icon-btn" aria-label="Rechercher">🔍</button>
+            <button class="mobile-toggle" id="mobile-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- CONTENEUR PRINCIPAL DYNAMIQUE -->
+    <main id="app-root">
+        <!-- Le JavaScript injectera le contenu ici (Accueil, Jeux, Objectifs, etc.) -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">LA ZONE <span>GAMING</span></div>
+            <p>La référence française pour dominer tes jeux favoris.</p>
+            <div class="social-links">
+                <a href="#">X / Twitter</a>
+                <a href="#">Discord</a>
+                <a href="#">Twitch</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 La Zone Gaming. Propulsé par passion.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
