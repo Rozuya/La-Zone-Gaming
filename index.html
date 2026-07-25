@@ -3,56 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Zone Gaming | La plateforme E-sport & Gaming FR</title>
+    <title>La Zone Gaming | Actualités, Guides & Objectifs</title>
+    
+    <!-- Lien CSS direct (sans / au début pour GitHub Pages) -->
     <link rel="stylesheet" href="style.css">
-    <!-- Polices gaming et lisibles -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Polices Gaming Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- BARRE DE NAVIGATION -->
-    <header class="navbar">
-        <div class="logo" onclick="navigateTo('home')">
-            LA ZONE <span>GAMING</span>
-        </div>
-        
-        <nav id="nav-menu">
-            <ul class="nav-links">
-                <li><a href="#" onclick="navigateTo('home')">Accueil</a></li>
-                <li><a href="#" onclick="navigateTo('home', '#games-section')">Jeux</a></li>
-                <li><a href="#" onclick="navigateTo('objectives')">Objectifs</a></li>
-                <li><a href="#" onclick="navigateTo('news')">Actualités</a></li>
-                <li><a href="#" onclick="navigateTo('about')">À propos</a></li>
-            </ul>
-        </nav>
-
-        <div class="nav-actions">
-            <button class="icon-btn" aria-label="Rechercher">🔍</button>
-            <button class="mobile-toggle" id="mobile-toggle">☰</button>
+    <!-- BARRE DE NAVIGATION PRINCIPALE -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo" onclick="navigateTo('home'); return false;">
+                LA ZONE <span>GAMING</span>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" onclick="navigateTo('home'); return false;">Accueil</a></li>
+                    <li><a href="#" onclick="navigateTo('home'); setTimeout(() => document.getElementById('games-section')?.scrollIntoView({behavior: 'smooth'}), 100); return false;">Jeux</a></li>
+                    <li><a href="#" onclick="navigateTo('objectives'); return false;">Objectifs</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- CONTENEUR PRINCIPAL DYNAMIQUE -->
+    <!-- ZONE DE CONTENU DYNAMIQUE (Tout est généré par script.js) -->
     <main id="app-root">
-        <!-- Le JavaScript injectera le contenu ici (Accueil, Jeux, Objectifs, etc.) -->
+        <!-- Le contenu (Accueil, Fortnite, Rocket League, Valorant, DB Sparking Zero, News Live) s'affiche ici -->
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">LA ZONE <span>GAMING</span></div>
-            <p>La référence française pour dominer tes jeux favoris.</p>
-            <div class="social-links">
-                <a href="#">X / Twitter</a>
-                <a href="#">Discord</a>
-                <a href="#">Twitch</a>
+    <!-- PIED DE PAGE -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>LA ZONE <span>GAMING</span></h3>
+                <p>La référence pour suivre l'actualité en direct de Fortnite, Rocket League, Valorant et Dragon Ball Sparking Zero.</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2024 La Zone Gaming. Propulsé par passion.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 La Zone Gaming. Tous droits réservés.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Script JS direct (sans / au début pour GitHub Pages) -->
     <script src="script.js"></script>
 </body>
 </html>
