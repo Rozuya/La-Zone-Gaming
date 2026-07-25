@@ -3,134 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hub Actus & Esport Gaming</title>
+    <title>ROZUYA | Profil Gaming & Stream</title>
     <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <h1>Hub Actus & Esport Gaming</h1>
-        <p>Flux officiel en direct pour Fortnite, Valorant, Sparking! ZERO & Rocket League</p>
-    </header>
-
-    <div class="container">
-
-        <!-- FORTNITE -->
-        <div class="card fortnite">
-            <div class="card-img-container">
-                <img src="https://cdn2.unrealengine.com/fortnite-mega-key-art-1920x1080-1920x1080-2d08a54d3148.jpg" alt="Fortnite" referrerpolicy="no-referrer">
-            </div>
-            <div class="card-body">
-                <div class="card-title">
-                    <span>Fortnite</span>
-                    <span class="badge">BR & Esport</span>
-                </div>
-                <div class="links-section">
-                    <h4>Source Officielle</h4>
-                    <ul class="link-list">
-                        <li>📌 <span>Actus Fortnite (Epic Games)</span></li>
-                    </ul>
-                </div>
-                <div class="news-feed">
-                    <h4>🔄 Dernières Actualités</h4>
-                    <div class="feed-items" id="feed-fortnite">
-                        <span class="loader">Chargement des actualités...</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- VALORANT -->
-        <div class="card valorant">
-            <div class="card-img-container">
-                <img src="https://images.contentstack.io/v3/assets/bltb6540380da717f51/blt1580230538a7c2e3/63124b80e816a410313c88d8/VALORANT_Jett_KeyArt_1920x1080.jpg" alt="Valorant" referrerpolicy="no-referrer">
-            </div>
-            <div class="card-body">
-                <div class="card-title">
-                    <span>Valorant</span>
-                    <span class="badge">FPS Esport</span>
-                </div>
-                <div class="links-section">
-                    <h4>Source Officielle</h4>
-                    <ul class="link-list">
-                        <li>📌 <span>Actus Valorant (Riot Games)</span></li>
-                    </ul>
-                </div>
-                <div class="news-feed">
-                    <h4>🔄 Dernières Actualités</h4>
-                    <div class="feed-items" id="feed-valorant">
-                        <span class="loader">Chargement des actualités...</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- DRAGON BALL SPARKING ZERO -->
-        <div class="card dbz">
-            <div class="card-img-container">
-                <img src="https://image.api.playstation.com/vulcan/ap/rnd/202311/2802/0f7e436f5ef5ec97920199147d33d6b1d44005d52b1458e0.png" alt="Dragon Ball Sparking Zero" referrerpolicy="no-referrer">
-            </div>
-            <div class="card-body">
-                <div class="card-title">
-                    <span>DB: Sparking! ZERO</span>
-                    <span class="badge">Versus Fighting</span>
-                </div>
-                <div class="links-section">
-                    <h4>Source Officielle</h4>
-                    <ul class="link-list">
-                        <li>📌 <span>Actus Bandai Namco Europe</span></li>
-                    </ul>
-                </div>
-                <div class="news-feed">
-                    <h4>🔄 Dernières Actualités</h4>
-                    <div class="feed-items" id="feed-dbz">
-                        <span class="loader">Chargement des actualités...</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ROCKET LEAGUE -->
-        <div class="card rl">
-            <div class="card-img-container">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjg21uxXs-h51w3Q-pCiYw1A690VMohx8zPYtS8K6Cam7p8gi0hTFJZpY8&s=10" alt="Rocket League" referrerpolicy="no-referrer">
-            </div>
-            <div class="card-body">
-                <div class="card-title">
-                    <span>Rocket League</span>
-                    <span class="badge">RLCS & Arcade</span>
-                </div>
-                <div class="links-section">
-                    <h4>Source Officielle</h4>
-                    <ul class="link-list">
-                        <li>📌 <span>Rocket League News</span></li>
-                    </ul>
-                </div>
-                <div class="news-feed">
-                    <h4>🔄 Dernières Actualités</h4>
-                    <div class="feed-items" id="feed-rl">
-                        <span class="loader">Chargement des actualités...</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    <div class="background-effects">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
     </div>
 
-    <!-- FENÊTRE MODALE D'ACTUALITÉ (POUR LIRE SUR PLACE) -->
-    <div id="news-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close">&times;</button>
-            <h2 id="modal-title">Titre de l'article</h2>
-            <div class="modal-date" id="modal-date">Date</div>
-            <hr class="modal-divider">
-            <div id="modal-body" class="modal-text">Contenu de l'article...</div>
-        </div>
-    </div>
+    <main class="profile-card">
+        <!-- HEADER PROFIL -->
+        <header class="profile-header">
+            <div class="avatar-container">
+                <div class="avatar-ring"></div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR08zS7KzGz7F5S5S5S5S5S5S5S5S5S5S5S5S&s" alt="Avatar" class="avatar-img" id="user-avatar">
+            </div>
+            <h1 class="username">ROZUYA</h1>
+            <p class="tagline">SHINZŌ夜 • Content Creator & Gamer</p>
+        </header>
 
-    <footer>
-        <p>Projet GitHub Pages - Lecture directe sans redirection</p>
-    </footer>
+        <!-- RÉSEAUX SOCIAUX -->
+        <section class="social-links">
+            <a href="https://www.twitch.tv/hol_rozuya" target="_blank" class="social-btn twitch">
+                <i class="fa-brands fa-twitch"></i>
+                <span>Twitch</span>
+            </a>
+            <a href="https://www.youtube.com/@SHINZO-yo" target="_blank" class="social-btn youtube">
+                <i class="fa-brands fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+        </section>
+
+        <!-- IDENTIFIANTS JEUX & DISCORD -->
+        <section class="ids-section">
+            <h2 class="section-title"><i class="fa-solid fa-gamepad"></i> Mes Pseudos & Contacts</h2>
+
+            <!-- EPIC GAMES -->
+            <div class="id-box epic" onclick="copyText('7 SHINZŌ', 'Epic Games')">
+                <div class="id-info">
+                    <i class="fa-solid fa-bolt id-icon"></i>
+                    <div>
+                        <span class="platform-name">Epic Games</span>
+                        <span class="id-value">7 SHINZŌ</span>
+                    </div>
+                </div>
+                <button class="copy-btn" title="Copier"><i class="fa-regular fa-copy"></i></button>
+            </div>
+
+            <!-- RIOT GAMES -->
+            <div class="id-box riot" onclick="copyText('SHINZO #31052', 'Riot ID')">
+                <div class="id-info">
+                    <i class="fa-solid fa-crosshair id-icon"></i>
+                    <div>
+                        <span class="platform-name">Riot Games (Valorant)</span>
+                        <span class="id-value">SHINZO #31052</span>
+                    </div>
+                </div>
+                <button class="copy-btn" title="Copier"><i class="fa-regular fa-copy"></i></button>
+            </div>
+
+            <!-- STEAM -->
+            <div class="id-box steam" onclick="copyText('1270447966', 'Code Ami Steam')">
+                <div class="id-info">
+                    <i class="fa-brands fa-steam id-icon"></i>
+                    <div>
+                        <span class="platform-name">Steam (In-game: rozuya)</span>
+                        <span class="id-value">Code Ami: 1270447966</span>
+                    </div>
+                </div>
+                <button class="copy-btn" title="Copier"><i class="fa-regular fa-copy"></i></button>
+            </div>
+
+            <!-- DISCORD -->
+            <div class="id-box discord" onclick="copyText('rozuya.', 'Discord')">
+                <div class="id-info">
+                    <i class="fa-brands fa-discord id-icon"></i>
+                    <div>
+                        <span class="platform-name">Discord (Voc: SHINZŌ.exe)</span>
+                        <span class="id-value">rozuya.</span>
+                    </div>
+                </div>
+                <button class="copy-btn" title="Copier"><i class="fa-regular fa-copy"></i></button>
+            </div>
+        </section>
+
+        <footer>
+            <p>© ROZUYA - La Zone Gaming</p>
+        </footer>
+    </main>
+
+    <!-- NOTIFICATION DE COPIE -->
+    <div id="toast" class="toast">Copié dans le presse-papier !</div>
 
     <script src="script.js"></script>
 </body>
